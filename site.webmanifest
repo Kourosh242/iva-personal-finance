@@ -1,0 +1,19 @@
+{
+  "name": "پلتفرم حسابداری آیوا",
+  "short_name": "IVA",
+  "description": "پلتفرم حسابداری شخصی دو زبانه و متن‌باز",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0c1019",
+  "theme_color": "#6756e8",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "assets/iva-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
