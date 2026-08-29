@@ -20,6 +20,7 @@
 |------|-------|
 | [🏠 صفحه اصلی](Home) | معرفی و فهرست مطالب |
 | [🚀 شروع به کار](Getting-Started) | نصب، اجرا و راه‌اندازی اولیه |
+| [📦 دانلود و نصب](Downloads) | راهنمای انتخاب و نصب فایل‌های آماده (ویندوز/لینوکس/اندروید) |
 | [✨ قابلیت‌ها](Features) | بررسی عمیق تمام قابلیت‌های برنامه |
 | [📖 راهنمای کاربر](User-Guide) | آموزش کامل کار با صفحات و ابزارها |
 | [🛠️ راهنمای توسعه](Development-Guide) | ساختار کد، ماژول‌ها و مشارکت |
@@ -44,6 +45,7 @@ Welcome to the **IVA Personal Finance Platform** Wiki — a bilingual, open-sour
 |------|-------------|
 | [🏠 Home](Home) | Introduction and table of contents |
 | [🚀 Getting Started](Getting-Started) | Setup, installation, first launch |
+| [📦 Downloads & Installation](Downloads) | Choosing & installing the packaged apps (Windows/Linux/Android) |
 | [✨ Features](Features) | Deep dive into all app features |
 | [📖 User Guide](User-Guide) | Complete tutorial for all pages and tools |
 | [🛠️ Development Guide](Development-Guide) | Code structure, modules, contribution |
