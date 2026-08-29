@@ -38,6 +38,9 @@ IVA مخفف «حسابدار هوشمند» است و در انگلیسی به 
 
 ---
 
+#### از کجا می‌توانم نسخهٔ نصبی (ویندوز/لینوکس/اندروید) بگیرم؟
+از [صفحهٔ ریلیز](https://github.com/Kourosh242/iva-personal-finance/releases/latest) — راهنمای کامل انتخاب و نصب فایل مناسب در صفحهٔ [دانلود و نصب](Downloads) است.
+
 ### ❔ ویژگی‌ها
 
 #### چگونه تراکنش جدید ثبت کنم؟
@@ -106,6 +109,9 @@ Go to **Settings** → **Data** → **Download JSON backup**. To restore, use **
 Yes. In **Settings** → **Data** → **Reset** will restore original sample data. You can Undo it.
 
 ---
+
+#### Where can I get the packaged app (Windows/Linux/Android)?
+From the [release page](https://github.com/Kourosh242/iva-personal-finance/releases/latest) — the full guide for choosing and installing the right file is in [Downloads & Installation](Downloads).
 
 ### ❔ Features
 

@@ -135,86 +135,119 @@
 
 ## 📖 User Guide (English)
 
-This guide walks you through all of IVA's features and pages.
+This guide walks you through all of IVA's pages and tools.
+
+---
 
 ### 📊 Dashboard (Overview)
 
+The main page after you sign in:
+
+![Dashboard](https://raw.githubusercontent.com/Kourosh242/iva-personal-finance/main/assets/iva-repo-poster.png)
+
 **What you can do:**
-1. View your **net worth** in the hero card with count-up animation
-2. Check KPI cards: income, expense, savings for this month
+1. View your **net worth** in the hero card with a count-up animation
+2. Check the KPI cards: income, expense and savings for this month
 3. Analyze the 6-month cash flow bar chart
-4. See category breakdown in the donut chart
-5. Read smart insights (automated analysis)
+4. See the category breakdown in the donut chart
+5. Read the smart insights (automated analysis and warnings)
 6. Edit recent transactions by clicking them
-7. Navigate using "View all" buttons
+7. Navigate to other pages using the "View all" buttons
+
+---
 
 ### 💳 Transactions
 
 **New transaction:**
-1. Click **"New transaction"** or the FAB + button (mobile)
+1. Click **"New transaction"** (top bar) or the floating **+** button (mobile)
 2. Choose **Expense** or **Income**
-3. Fill in: title, amount, category, account, date, note
-4. Click **"Save"** — the undo button gives you a chance to revert
-
-> 💡 **Tip**: After saving, you have a few seconds to undo!
+3. Fill in: title (min 2 chars), amount (Persian or English digits), category, account, date (shown in Jalali), optional note
+4. Click **Save** — a toast with an **Undo** button appears for a few seconds
 
 **Search & filter:**
-- Live search with Persian digit support
-- Filter by type, category, account, month
-- Sort by date or amount
+- **Search**: type in the search box — results update live
+- **Type filter**: the All / Income / Expense buttons
+- **Category / account / month filters**: the dropdowns
+- **Sort**: date (newest/oldest) or amount (largest/smallest)
+- **Show more**: paginates long lists
 
 **CSV export:**
-- Click "Export CSV" — downloads a standard CSV file for Excel
+1. Click **Export CSV** at the top of the page
+2. A standard CSV file (with BOM for Excel) is downloaded
+3. Opens cleanly in Excel and Google Sheets
 
-### � Accounts
+---
 
-- **Add account**: Name, type (bank/card/cash/savings/wallet), balance, color, note
-- **Deleteing** an account that has transactions will prompt for cascade deletion
+### 🏦 Accounts
 
-### � Targets (Budgets)
+**Add an account:**
+1. Click **Add**
+2. Enter name, type (bank / card / cash / savings / wallet), balance, color and optional note
+3. Save
 
-- Set a monthly cap per category
-- One budget per category (auto-deduplicates)
-- Red card + arning when over limit
+**Edit & delete:**
+- **Pencil** (edit) or **trash** (delete) buttons on each account card
+- Deleting an account that has transactions asks for confirmation and removes the linked transactions too (cascade)
+
+---
+
+### 🎯 Budgets
+
+Budgets keep each category's spending under control:
+- Only **one budget per category** (creating a second one for a category replaces the old one)
+- The card turns **red** with a warning when you go over the limit
+- The progress bar shows usage against the cap
+
+---
 
 ### 🎯 Goals
 
-- Defie goals with target amount and optional deadline
-- Click **+** to add finds to a goal
-- IVA predicts how many months titil you reach your goal
-- 🎉 Congratulatory message when goal is reached
+Plan for your financial dreams:
+- **Add funds**: click **+** on a goal and enter the amount
+- **Prediction**: IVA estimates how many months left at your average monthly savings
+- **Countdown**: days remaining until the deadline (or "past deadline")
+- 🎉 A congratulations message when the goal is reached
 
-### 🔄 Dets & Receivables
+---
 
-- Toggle settlement with ✅ button
-- Dua dates automatically labeled: "X days left", "Due today!", "X days overdue"
+### 🔄 Debts & Receivables
+- **Settlement**: click the ✅ button on any debt/receivable to mark it settled (click again to unmark)
+- Due dates are labeled automatically: "X days left", "Due today!", "X days overdue"
+
+---
 
 ### 📈 Reports
+- Switch the range with the 3 / 6 / 12 month buttons
+- Three KPI tiles at the top: savings rate, average daily spend, month-end projection
+- Main charts: cash flow (grouped bars) and net trend (smooth line)
+- Top categories ranking and per-budget usage
+- Biggest expense in the selected range
 
-- Switch betwen 3/6/12-month ranges
-- Three KPI tiles: savings rate, avg daily spend, projection
-- Cash flow and net trend charts
-- Top categories ranking and budget usage
+---
 
 ### ⚙️ Settings
 
 | Section | Description |
 |---------|-------------|
 | **Profile** | Change display name |
-| **Appearance** | Theme, language, currency |
-| **Data** | JSON backup/restore, reset to sample|| **About** | Version, license, shortcuts, PWA install |
+| **Appearance** | Light / dark / system theme, language, currency (Toman / Rial) |
+| **Data** | Download JSON backup, restore from backup, reset sample data |
+| **About** | Version, PWA status, license, keyboard shortcuts, PWA install |
 
 **Keyboard shortcuts:**
 | Key | Action |
 |-----|--------|
 | `N` | New transaction |
-| `/` | Searh|
+| `/` | Jump to search |
 | `T` | Toggle theme |
-| `Esc` | Close dialog/modal |
+| `Esc` | Close dialog / modal |
 
-### 📱 Mobile Version
+---
+
+### 📱 Mobile version
 
 On mobile:
-- **Bottom nav**: Overview, Transactions, Reports
-- **FAB +**: New transaction
-- **Bottom Sheet**: More menu (other pages)
+- **Bottom navigation**: Overview, Transactions, Reports
+- **FAB +**: new transaction
+- **Bottom sheet** ("More"): Accounts, Budgets, Goals, Debts, Settings
+

@@ -21,15 +21,17 @@ const U = {
     return Number.isFinite(n) ? n : NaN;
   },
   group(n) {
-    const neg = n < 0; const abs = Math.abs(Math.round(n));
-    let s = String(abs), out = "";
+    const num = Number(n);
+    if (!Number.isFinite(num)) return String(n ?? "");
+    const fa = U.lang() === "fa";
+    if (Math.abs(num) >= 1e16) return (num < 0 ? (fa ? "−" : "-") : "") + String(Math.abs(num));
+    const neg = num < 0;
+    const [intStr, decStr] = String(Math.abs(num)).split(".");
+    let s = intStr, out = "";
     while (s.length > 3) { out = "," + s.slice(-3) + out; s = s.slice(0, -3); }
-    const grouped = s + out;
-    if (U.lang() === "fa") {
-      const fa = grouped.replace(/\d/g, d => U.faDigits[+d]).replace(/,/g, "٬");
-      return (neg ? "−" : "") + fa;
-    }
-    return (neg ? "-" : "") + grouped;
+    let grouped = s + out + (decStr && +decStr ? (fa ? "٫" : ".") + decStr : "");
+    if (fa) grouped = grouped.replace(/\d/g, d => U.faDigits[+d]).replace(/,/g, "٬");
+    return (neg ? (fa ? "−" : "-") : "") + grouped;
   },
   /* full money in display currency; amounts stored in toman */
   money(n, opts = {}) {

@@ -145,7 +145,9 @@ const Store = {
     }));
     const accByName = new Map(accounts.map(a => [a.name, a.id]));
     const transactions = (old.transactions || []).map((t, i) => {
-      const type = t.type === "income" || Store.num(t.amount) > 0 ? "income" : "expense";
+      // v1 sometimes kept signed amounts and sometimes unsigned + type; trust the
+      // explicit type first and use the sign only as a fallback for legacy rows
+      const type = t.type === "income" || t.type === "expense" ? t.type : (Store.num(t.amount) > 0 ? "income" : "expense");
       const catRaw = String(t.category || "");
       const isIncome = type === "income";
       const category = Store._catMap[catRaw] || (isIncome ? "salary" : "other");
