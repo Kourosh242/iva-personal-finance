@@ -156,7 +156,7 @@
       reports: [U.t("rep.title"), U.t("rep.sub")],
       settings: [U.t("set.title"), U.t("set.sub")]
     }[page];
-    if (page === "overview") t[0] = U.t("common.today") === "امروز" ? "سلام " + (App.settings.name || "") + "، خوش آمدی 👋" : "Hello " + (App.settings.name || "") + ", welcome 👋";
+    if (page === "overview") t[0] = U.lang() === "fa" ? "سلام " + (App.settings.name || "") + "، خوش آمدی 👋" : "Hello " + (App.settings.name || "") + ", welcome 👋";
     $("#page-title").textContent = t[0];
     $("#page-subtitle").textContent = t[1];
     const content = $("#page-content");
@@ -231,7 +231,7 @@
     const catTotal = cats.reduce((a, c) => a + c.value, 0) || 1;
     const donutParts = cats.map(c => ({ value: c.value, color: c.meta.color, label: U.t("cat." + c.cat), tip: U.money(c.value) }));
     if (D.sums(D.txOfMonth(D.curKey())).expense > catTotal) donutParts.push({ value: D.sums(D.txOfMonth(D.curKey())).expense - catTotal, color: "var(--line-3)", label: U.t("chart.other") });
-    const recent = [...Store.state.transactions].sort((a, b) => b.date < a.date ? -1 : 1).slice(0, 5);
+    const recent = [...Store.state.transactions].sort((a, b) => a.date === b.date ? (a.id > b.id ? 1 : -1) : (a.date < b.date ? 1 : -1)).slice(0, 5);
     const insights = D.insights();
     const buds = Store.state.budgets.map(b => ({ b, ratio: b.amount > 0 ? D.budgetSpent(b) / b.amount : 0 })).sort((x, y) => y.ratio - x.ratio).slice(0, 3);
     const goal = [...Store.state.goals].sort((a, b) => (b.saved / b.target) - (a.saved / a.target))[0];
@@ -591,7 +591,7 @@
       '<div class="form-err" role="alert" hidden></div>' +
       '<div class="modal-actions"><button type="button" class="secondary" data-close="1">' + U.esc(U.t("common.cancel")) + '</button><button type="submit" class="primary">' + U.icon("check", 15) + " " + U.esc(U.t("common.save")) + "</button></div></form></div>";
     root.hidden = false;
-    setTimeout(() => root.querySelector("input").focus(), 60);
+    setTimeout(() => { const inp = root.querySelector('input:not([type="hidden"])'); if (inp) inp.focus(); }, 60);
   }
 
   /* confirm dialog (promise) */
