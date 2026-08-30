@@ -1,0 +1,49 @@
+# --- OS ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Node / build tools (should not be needed) ---
+node_modules/
+dist/
+build/
+out/
+coverage/
+*.log
+
+# --- Local data / secrets ---
+*.env
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+backups/
+*.json.bak
+
+# --- Packaged binaries (publish via GitHub Releases, not in git) ---
+*.exe
+*.msi
+*.deb
+*.rpm
+*.appimage
+*.apk
+*.dmg
+*.zip
+*.tar.gz
+
+# --- OS snapshots / tooling caches ---
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.turbo/
+.venv/
+__pycache__/

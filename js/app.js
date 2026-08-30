@@ -518,13 +518,13 @@
     const archName = { x64: fa ? "x64 (۶۴بیتی)" : "x64 (64-bit)", ia32: fa ? "x86 (۳۲بیتی)" : "x86 (32-bit)", arm64: "ARM64" }[arch] || "";
     const key = os === "win32" || os === "linux" ? os + "|" + (arch || "x64") : os;
     const file = {
-      "win32|x64": fa ? "Setup x64.exe (ویندوز ۶۴بیتی)" : "Setup x64.exe (Windows 64-bit)",
-      "win32|ia32": fa ? "Setup x86.exe (ویندوز ۳۲بیتی)" : "Setup x86.exe (Windows 32-bit)",
-      "win32|arm64": fa ? "Setup ARM64.exe (ویندوز روی ARM)" : "Setup ARM64.exe (Windows on ARM)",
-      darwin: fa ? "فایل dmg نسخهٔ مک" : "macOS dmg",
-      "linux|x64": fa ? "بستهٔ deb یا AppImage" : "deb or AppImage",
-      "linux|arm64": fa ? "بستهٔ ARM64 (deb/AppImage)" : "ARM64 (deb/AppImage)",
-      android: fa ? "فایل APK" : "APK file",
+      "win32|x64": fa ? "Setup x64.exe (ویندوز ۷ تا ۱۱، ۶۴بیتی)" : "Setup x64.exe (Windows 7–11, 64-bit)",
+      "win32|ia32": fa ? "Setup x86.exe (ویندوز ۳۲بیتی/۶۴بیتی)" : "Setup x86.exe (Windows 32/64-bit)",
+      "win32|arm64": fa ? "وب/PWA (بستهٔ ARM ویندوز منتشر نشده)" : "Web/PWA (no Windows ARM package)",
+      darwin: fa ? "وب/PWA (فایل نصبی مخصوص مک منتشر نشده)" : "Web/PWA (no macOS installer published)",
+      "linux|x64": fa ? "بستهٔ deb — amd64" : ".deb — amd64",
+      "linux|arm64": fa ? "بستهٔ deb — arm64" : ".deb — arm64",
+      android: fa ? "فایل APK (یونیورسال)" : "APK file (universal)",
       web: fa ? "نیازی به دانلود ندارد (PWA)" : "No download needed (PWA)"
     }[key] || (fa ? "فایل مناسب سیستم‌تان از صفحهٔ Releases" : "Matching file from the Releases page");
     return { label: osName + (archName ? " · " + archName : ""), file };
@@ -551,6 +551,11 @@
       '<div class="setting-row"><div><b>' + U.esc(U.t("action.exportJson")) + "</b><small>" + U.esc(U.t("set.backupHint")) + '</small></div><button class="secondary" data-action="export-json">' + U.icon("download", 14) + " " + U.esc(U.t("common.download")) + "</button></div>" +
       '<div class="setting-row"><div><b>' + U.esc(U.t("action.importJson")) + "</b><small>" + U.esc(U.t("set.importHint")) + '</small></div><button class="secondary" data-action="import-json">' + U.icon("upload", 14) + " " + U.esc(U.t("common.restore")) + '</button><input type="file" id="import-file" accept="application/json,.json" hidden></div>' +
       '<div class="setting-row"><div><b>' + U.esc(U.t("action.reset")) + "</b><small>" + U.esc(U.t("set.resetHint")) + '</small></div><button class="danger-btn" data-action="reset">' + U.esc(U.t("action.reset")) + "</button></div></article>" +
+
+      '<article class="card"><h2 class="sec-title">' + U.icon("wallet", 16) + " " + U.esc(U.t("set.demo")) + '</h2>' +
+      '<p class="set-up-desc">' + U.esc(U.t("set.demoBody")) + "</p>" +
+      '<div class="setting-row"><div><small>' + U.esc(U.t("set.demoHint")) + "</small></div>" +
+      '<button class="secondary" data-action="load-demo">' + U.icon("download", 14) + " " + U.esc(U.t("action.loadDemo")) + "</button></div></article>" +
 
       '<article class="card"><h2 class="sec-title">' + U.icon("refresh", 16) + " " + U.esc(U.t("set.upTitle")) + '</h2>' +
       '<p class="set-up-desc">' + U.esc(U.t("set.upDesc")) + "</p>" +
@@ -1040,6 +1045,12 @@
             withUndo(U.t("toast.resetDone"), () => { Store.state = Store.seed(); });
           }
         }
+        else if (a === "load-demo") {
+          stop();
+          if (await confirmDlg(U.t("set.demoConfirmTitle"), U.esc(U.t("set.demoConfirmBody")), false)) {
+            withUndo(U.t("toast.demoLoaded"), () => { Store.state = Store.seedDemo(); });
+          }
+        }
         else if (a === "set-theme") { stop(); App.settings.theme = el.dataset.val; Store.saveSettings(); applyTheme(); render(); }
         else if (a === "set-lang") { stop(); App.settings.lang = el.dataset.val; Store.saveSettings(); applyLang(); render(); }
         else if (a === "set-currency") { stop(); App.settings.currency = el.dataset.val; Store.saveSettings(); render(); }
@@ -1091,6 +1102,13 @@
         const name = $("#welcome-name").value.trim();
         if (name.length < 2) return;
         App.settings.name = name; Store.saveSettings();
+        /* دمو: بر اساس انتخاب کاربر در فرم خوش‌آمد — پیش‌فرض فعال تا کاربر «یک مثال» ببیند.
+           فقط وقتی هنوز داده‌ای ثبت نشده است؛ در غیر این صورت دادهٔ موجود هرگز بازنویسی نمی‌شود. */
+        const s = Store.state;
+        const isEmpty = s && !s.accounts.length && !s.transactions.length && !s.budgets.length && !s.goals.length && !s.debts.length && !s.notes.length;
+        if (isEmpty && $("#welcome-demo") && $("#welcome-demo").checked) {
+          Store.state = Store.seedDemo(); Store.save();
+        }
         $("#welcome-backdrop").hidden = true;
         /* فیکس ریشه‌ای میان‌برها: فوکوس روی اینپوت مخفی welcome نماند (وگرنه typing=true و n/t مرده‌اند) */
         if (document.activeElement && document.activeElement.blur) document.activeElement.blur();

@@ -1,24 +1,58 @@
-# آپلود پروژه IVA از طریق سایت GitHub
+# راهنمای آپلود و GitHub Pages | Upload & GitHub Pages Guide (فارسی)
 
-1. فایل ZIP را دانلود و Extract کن.
-2. وارد github.com شو و گزینه New repository را بزن.
-3. نام ریپو را iva-personal-finance بگذار.
-4. حالت Public را انتخاب کن.
-5. README، License و gitignore را فعال نکن؛ فایل‌های لازم داخل پروژه هستند.
-6. روی Create repository بزن.
-7. گزینه uploading an existing file را انتخاب کن.
-8. تمام محتویات داخل پوشه Extract‌شده را انتخاب و داخل صفحه GitHub بکش.
-9. صبر کن همه فایل‌ها آپلود شوند.
-10. در Commit changes بنویس: Initial release of IVA Personal Finance
-11. روی Commit changes بزن.
+## ۱) آپلود با Git (پیشنهادی)
 
-## فعال‌کردن سایت رایگان GitHub Pages
+```bash
+git clone https://github.com/Kourosh242/iva-personal-finance.git
+cd iva-personal-finance
 
-1. وارد Settings ریپو شو.
-2. از ستون سمت چپ Pages را باز کن.
-3. بخش Build and deployment را روی Deploy from a branch قرار بده.
-4. Branch را main و پوشه را / (root) انتخاب کن.
-5. Save را بزن.
-6. چند دقیقه بعد، لینک سایت در همین صفحه نمایش داده می‌شود.
+# بعد از تغییرات
+git add .
+git commit -m "feat: ..."
+git push origin main
+```
 
-چون پروژه فقط HTML، CSS و JavaScript است، بدون تنظیم اضافه روی GitHub Pages اجرا می‌شود.
+## ۲) آپلود از طریق وب‌سایت GitHub (بدون Git)
+
+1. فایل ZIP ریپو را دانلود و Extract کنید.
+2. وارد github.com شوید و **New repository** را بزنید.
+3. نام ریپو را `iva-personal-finance` بگذارید (ترجیحاً) و حالت **Public** را انتخاب کنید.
+4. README، License و `.gitignore` را از گزینه‌های ابتدایی فعال **نکنید**؛ فایل‌ها داخل پوشه موجودند.
+5. **Create repository** → **uploading an existing file**.
+6. همهٔ محتوای پوشهٔ Extract‌شده را drag & drop کنید.
+7. Commit message: `Initial release of IVA Personal Finance` → **Commit changes**.
+
+## ۳) فعال‌کردن GitHub Pages
+
+### روش A — GitHub Actions (توصیه‌شده)
+
+برای فعال‌سازی خودکار Pages، قالب‌های `.github/workflows/pages.yml` و `ci.yml` باید با مجوز `workflows` به ریپو push شوند (در برخی حالت‌های GitHub App این مجوز در دسترس نیست و باید اجازهٔ مربوط به GitHub Actions/Workflows را فعال کنید).
+
+1. فایل‌های `.github/workflows/` را اضافه و push کنید.
+2. **Settings → Pages → Source: GitHub Actions** را انتخاب کنید.
+3. Push به `main` انجام دهید.
+4. چند دقیقه بعد سایت از `https://<user>.github.io/iva-personal-finance/` در دسترس است.
+
+بدون workflow هم می‌توانید از «روش B — Deploy from branch» استفاده کنید.
+
+### روش B — Deploy from branch
+
+1. **Settings → Pages** را باز کنید.
+2. بخش **Build and deployment** → `Deploy from a branch` را انتخاب کنید.
+3. Branch: `main` و Folder: `/ (root)` را انتخاب کنید.
+4. **Save** را بزنید و چند دقیقه صبر کنید.
+
+## ۴) نکات مهم
+
+- پروژه فقط HTML/CSS/JS است؛ بدون سرویس بک‌اند یا Build Step.
+- برای تجربهٔ کامل PWA و اتصال به نرخ‌های زنده، به HTTPS نیاز دارید (GitHub Pages دارد).
+- فونت و اکثر لوگوها داخل پروژه‌اند؛ نیازی به CDN نیست.
+- فایل‌های نصبی (`.exe`/`.deb`/`.apk`) را از صفحهٔ **Releases** آپلود کنید، نه در ریپو.
+- اگر حجم فایل‌ها بزرگ باشد، از **Git LFS یا External Storage** استفاده کنید؛ تلاش کنید باینری‌ها را در ریلیز نگه دارید.
+
+## ۵) فایل‌هایی که در ریپو نمی‌گذاریم
+
+- `.exe`, `.deb`, `.apk` و باینری‌های بیلد
+- فایل‌های پشتیبان JSON واقعی کاربران
+- هرگونه رمز، توکن یا کلید خصوصی
+- پوشه‌های خروجی (`dist/`, `build/`, `node_modules/` و ...)
