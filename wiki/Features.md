@@ -22,7 +22,7 @@ IVA یک پلتفرم حسابداری شخصی همه‌کاره است. در �
 | **دونات هزینه‌ها** | سهم دسته‌های هزینه از کل مصارف ماه |
 | **تحلیل‌های هوشمند** | هشدار بودجه، نرخ پس‌انداز، پیش‌بینی هدف |
 | **تراکنش‌های اخیر** | ۵ تراکنش آخر با قابلیت ویرایش |
-| **بودجه‌ای پرمصرف** | ۳ بودجه ب اترین درصدمصرف |
+| **بودجه‌های پرمصرف** | ۳ بودجهٔ بالاترین درصد مصرف |
 | **نزدیک‌ترین هدف** | حلقه پیشرفت نزدیک‌ترین هدف به تحقق |
 
 ---
@@ -87,7 +87,20 @@ IVA یک پلتفرم حسابداری شخصی همه‌کاره است. در �
 
 ---
 
-### 📈 ۷. گزارش‌ها
+### 🧰 ۷. جعبه‌ابزار مالی (Tools)
+
+بخش «ابزارها» یک جعبه‌ابزار مالی کامل است:
+
+- **ارزها و طلا**: نرخ بازار آزاد ایران + کش محلی
+- **ارز دیجیتال**: قیمت تومانی بازار ایران + پشتیبان جهانی
+- **تبدیل‌گر**: تبدیل با نرخ زنده یا دستی
+- **محاسبه‌گر وام بانک مرکزی**: اقساط مساوی، قرض‌الحسنه و فلت + جدول کامل
+- **نرخ روز (تورم)**: ارزش معادل پول و مهریه به نرخ روز
+- **نشتی‌های مالی**: تخمین سالانهٔ هزینه‌های کوچک
+- **شناسایی بانک**: تشخیص بانک از BIN کارت با لوگو
+- **یادداشت‌های مالی**: یادداشت‌های خصوصی آفلاین
+
+### 📈 ۸. گزارش‌ها
 
 تحلیل عمیق مالی:
 
@@ -107,7 +120,8 @@ IVA یک پلتفرم حسابداری شخصی همه‌کاره است. در �
 
 - **پروفایل**: تغییر نام نمایشی
 - **ظاهر**: تم روشن/تاریک/سیستمی، زبان (فارسی/انگلیسی)، واحد پول (تومان/ریال)
-- **داده**: خروجی JSON، ورود JSON، بازنشانی به داده نمونه
+- **داده**: خروجی JSON، ورود JSON، پاک‌سازی همه داده‌ها
+- **داده نمونه**: بارگذاری/حذف دمو
 - **درباره**: نسخه، وضعیت PWA، مجوز، میان‌برهای صفحه‌کلید
 
 ---
@@ -181,7 +195,20 @@ Track your financial obligations:
 - **Due dates**: Smart labels (days left / due today / overdue)
 - **Settlement**: Mark as settled with toggle
 
-### 📈 7. Reports
+### 🧰 7. Financial Toolbox
+
+A complete local financial toolbox:
+
+- **FX & gold**: Iran free-market rates with local cache
+- **Crypto**: Toman prices from the Iranian market + global fallback
+- **Converter**: Live or manual rate conversion
+- **CBI loan calculator**: Equal-installment, Qarz and flat + full amortization table
+- **Day-rate / inflation**: Today's value of money and Mahr at day rate
+- **Money leaks**: Estimate yearly small expenses
+- **Bank lookup**: Detect bank from card BIN with logo
+- **Financial notes**: Private offline notes
+
+### 📈 8. Reports
 
 Deep financial analysis:
 
@@ -199,5 +226,6 @@ Full customization:
 
 - **Profile**: Change display name
 - **Appearance**: Light/Dark/System theme, language (Persian/English), currency (Toman/Rial)
-- **Data**: JSON export, JSON import, reset to sample data
+- **Data**: JSON export, JSON import, erase all data
+- **Sample data**: Load / remove demo data
 - **About**: Version, PWA status, license, keyboard shortcuts

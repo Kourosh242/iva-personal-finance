@@ -1,7 +1,7 @@
 /* IVA v2 service worker — network-first for freshness, cache fallback when unreachable */
 "use strict";
 
-const CACHE = "iva-v2.0.0-nodemo.r9"; /* r9: پاک‌سازی متن‌ها + فیکس‌های r8/r9 */ /* r8+r9: فیکس‌های ابزارها/فرم‌ها — پوستهٔ PWA تازه شود */
+const CACHE = "iva-v2.0.0-demo.r1"; /* دمو + مهاجرت v1/v2→v3 + هماهنگ‌سازی مستندات و امنیت */
 const FILES = [
   "./",
   "./index.html",

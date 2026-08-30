@@ -33,6 +33,7 @@ const I18N = {
     "action.newTx": "تراکنش جدید", "action.toggleTheme": "تغییر پوسته روشن/تاریک", "action.toggleLang": "Switch to English",
     "action.install": "نصب اپلیکیشن", "action.exportCsv": "خروجی CSV", "action.exportJson": "دانلود پشتیبان JSON",
     "action.importJson": "بازیابی از پشتیبان", "action.reset": "پاک‌سازی همه داده‌ها",
+    "action.loadDemo": "بارگذاری داده نمونه (دمو)",
 
     "tx.title": "تمام تراکنش‌ها", "tx.sub": "جستجو، فیلتر، مدیریت و خروجی اطلاعات",
     "tx.searchPh": "جستجو در تراکنش‌ها…", "tx.expense": "هزینه", "tx.income": "درآمد",
@@ -136,6 +137,10 @@ const I18N = {
     "set.version": "نسخه", "set.license": "مجوز MIT · متن‌باز", "set.onDevice": "داده‌ها روی دستگاه", "set.onDeviceOk": "فعال",
     "set.importDone": "پشتیبان بازیابی شد", "set.importBad": "فایل پشتیبان معتبر نیست", "set.nameSaved": "نام ذخیره شد",
     "set.installed": "برنامه نصب شد!", "set.installHint": "IVA را مثل یک اپ واقعی نصب کنید",
+    "set.demo": "داده نمونه (دمو)", "set.demoBody": "برای آشنایی با امکانات، یک مجموعه واقعی‌نما از حساب، تراکنش، بودجه، هدف، بدهی و یادداشت بارگذاری کنید.",
+    "set.demoHint": "دمو هیچ داده شخصی نمی‌سازد و هر لحظه با «پاک‌سازی همه داده‌ها» قابل حذف است.",
+    "set.demoConfirmTitle": "داده نمونه بارگذاری شود؟", "set.demoConfirmBody": "داده‌های فعلی شما با مجموعه دمو جایگزین می‌شود. تا لحظه‌ای بعد با «برگردان» قابل بازگردانی است.",
+    "toast.demoLoaded": "داده نمونه بارگذاری شد ✨",
 
     "del.txTitle": "حذف تراکنش؟", "del.txBody": "«{t}» حذف می‌شود و موجودی حساب اصلاح خواهد شد.",
     "del.accTitle": "حذف حساب؟", "del.budTitle": "حذف بودجه؟", "del.goalTitle": "حذف هدف؟", "del.debtTitle": "حذف بدهی/طلب؟",
@@ -145,6 +150,8 @@ const I18N = {
     "welcome.ask": "دوست دارید با چه نامی صدایتان کنیم؟",
     "welcome.privacy": "این نام فقط روی دستگاه شما ذخیره می‌شود و هر زمان از تنظیمات قابل تغییر است.",
     "welcome.name": "نام شما", "welcome.namePh": "مثلاً آرمان", "welcome.start": "شروع مدیریت مالی",
+    "welcome.demo": "بارگذاری داده نمونه (دمو) برای دیدن امکانات",
+    "welcome.demoHint": "می‌توانید بعداً از تنظیمات، دمو را دوباره بارگذاری یا کاملاً پاک کنید.",
 
     "health.title": "سلامت مالی", "health.great": "عالی", "health.good": "خوب", "health.ok": "متوسط", "health.poor": "ضعیف",
     "health.noData": "بدون داده", "health.noDataDesc": "هنوز داده‌ای برای سنجش نیست؛ با ثبت تراکنش این ماه، بودجه یا بدهی، نمره واقعی محاسبه می‌شود.",
@@ -209,6 +216,7 @@ const I18N = {
     "action.newTx": "New transaction", "action.toggleTheme": "Toggle light/dark theme", "action.toggleLang": "تغییر به فارسی",
     "action.install": "Install app", "action.exportCsv": "Export CSV", "action.exportJson": "Download JSON backup",
     "action.importJson": "Restore from backup", "action.reset": "Erase all data",
+    "action.loadDemo": "Load sample (demo) data",
 
     "tx.title": "All transactions", "tx.sub": "Search, filter, manage and export",
     "tx.searchPh": "Search transactions…", "tx.expense": "Expense", "tx.income": "Income",
@@ -312,6 +320,10 @@ const I18N = {
     "set.version": "Version", "set.license": "MIT license · Open source", "set.onDevice": "On-device data", "set.onDeviceOk": "Active",
     "set.importDone": "Backup restored", "set.importBad": "Invalid backup file", "set.nameSaved": "Name saved",
     "set.installed": "App installed!", "set.installHint": "Install IVA like a native app",
+    "set.demo": "Sample data (demo)", "set.demoBody": "Load a realistic set of accounts, transactions, budgets, goals, debts and notes so you can explore the features.",
+    "set.demoHint": "The demo contains no personal data and can be removed anytime with \u201cErase all data\u201d.",
+    "set.demoConfirmTitle": "Load sample data?", "set.demoConfirmBody": "Your current data will be replaced with the demo set. You can Undo immediately after.",
+    "toast.demoLoaded": "Sample data loaded \u2728",
 
     "del.txTitle": "Delete transaction?", "del.txBody": "“{t}” will be deleted and the account balance corrected.",
     "del.accTitle": "Delete account?", "del.budTitle": "Delete budget?", "del.goalTitle": "Delete goal?", "del.debtTitle": "Delete debt/receivable?",
@@ -321,6 +333,8 @@ const I18N = {
     "welcome.ask": "What should we call you?",
     "welcome.privacy": "The name is stored only on your device and can be changed anytime in Settings.",
     "welcome.name": "Your name", "welcome.namePh": "e.g. Arman", "welcome.start": "Start managing my money",
+    "welcome.demo": "Load sample (demo) data to explore the features",
+    "welcome.demoHint": "You can reload the demo or erase it completely later from Settings.",
 
     "health.title": "Financial health", "health.great": "Excellent", "health.good": "Good", "health.ok": "Fair", "health.poor": "Weak",
     "health.noData": "No data", "health.noDataDesc": "Nothing to measure yet — add this month's transactions, a budget or a debt to get a real score.",

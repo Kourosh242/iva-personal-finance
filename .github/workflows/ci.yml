@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main, arena/**]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    name: Static checks (JS syntax + JSON)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check JavaScript syntax
+        run: |
+          set -e
+          for f in js/*.js; do
+            echo "node --check $f"
+            node --check "$f"
+          done
+
+      - name: Validate manifest and docs JSON
+        run: |
+          node -e "JSON.parse(require('fs').readFileSync('site.webmanifest','utf8')); console.log('site.webmanifest OK')"
+
+      - name: Verify no forbidden binaries
+        run: |
+          set -e
+          if git ls-files | grep -E '\.(exe|deb|apk|msi|appimage|zip|tar\.gz)$'; then
+            echo "::error::Binary artifacts should be published via GitHub Releases, not committed."
+            exit 1
+          fi
+          echo "No binary artifacts in the repository tree."

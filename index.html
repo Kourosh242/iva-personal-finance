@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f6f7fb">
   <meta name="description" content="پلتفرم حسابداری شخصی و متن‌باز IVA — بودجه، هدف، تراکنش و گزارش؛ خصوصی و روی دستگاه شما">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' https://call1.tgju.org https://api.nobitex.ir https://api.arzdigital.com https://api.coingecko.com https://open.er-api.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta property="og:title" content="پلتفرم حسابداری آیوا | IVA">
   <meta property="og:description" content="پولت را بفهم، آینده‌ات را بساز.">
   <meta property="og:image" content="assets/iva-repo-poster.png">
@@ -109,6 +110,11 @@
       <p data-i18n="welcome.privacy">این نام فقط روی دستگاه شما ذخیره می‌شود و هر زمان از تنظیمات قابل تغییر است.</p>
       <label for="welcome-name" data-i18n="welcome.name">نام شما</label>
       <input id="welcome-name" required minlength="2" maxlength="40" autocomplete="name" data-i18n-ph="welcome.namePh" placeholder="مثلاً آرمان">
+      <label class="welcome-demo">
+        <input type="checkbox" id="welcome-demo" checked>
+        <span data-i18n="welcome.demo">بارگذاری داده نمونه (دمو) برای دیدن امکانات</span>
+      </label>
+      <small class="welcome-demo-hint" data-i18n="welcome.demoHint">می‌توانید بعداً از تنظیمات، دمو را دوباره بارگذاری یا کاملاً پاک کنید.</small>
       <button class="primary" type="submit" data-i18n="welcome.start">شروع مدیریت مالی</button>
     </form>
   </div>

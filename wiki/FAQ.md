@@ -15,7 +15,7 @@ IVA مخفف «حسابدار هوشمند» است و در انگلیسی به 
 بله! IVA کاملاً رایگان و متن‌باز تحت مجوز MIT است.
 
 #### آیا برای استفاده به اینترنت نیاز دارم؟
-بله. همه داده‌ها و محاسبات روی دستگاه شما انجام می‌شود و هیچ چیزی به سروری ارسال نمی‌گردد.
+خیر. پس از اولین بارگذاری، همهٔ داده‌ها و محاسبات روی دستگاه شما انجام می‌شود. تنها استثنا بخش اختیاری «ابزارها» است: اگر دکمهٔ «بروزرسانی نرخ‌ها» را بزنید، اپ برای خواندن نرخ عمومی بازار درخواست می‌فرستد (بدون هیچ دادهٔ شخصی). در غیر این صورت همه‌چیز آفلاین کار می‌کند.
 
 #### آیا IVA روی موبایل کار می‌کند؟
 بله! IVA طراحی واکنش‌گرا دارد و روی دسکتاپ، تبلت و موبایل به خوبی کار می‌کند. می‌توانید آن را مثل یک اپ واقعی نصب کنید (PWA).
@@ -34,9 +34,12 @@ IVA مخفف «حسابدار هوشمند» است و در انگلیسی به 
 وارد **تنظیمات** شوید، بخش **داده‌ها** → **دانلود پشتیبان JSON** را بزنید. برای بازیابی از گزینه **بازیابی از پشتیبان** استفاده کنید.
 
 #### آیا می‌توانم داده‌های نمونه را حذف کنم؟
-بله. در **تنظیمات** → **داده‌ها** گزینه **بازنشانی داده‌های نمونه** را بزنید. البته می‌توانید با Undo آن را برگردانید.
+بله. در **تنظیمات** → **داده‌ها** → **پاک‌سازی همه داده‌ها** همه‌چیز را پاک کنید (با Undo قابل بازگشت است). اگر بخواهید دمو را دوباره ببینید، از **تنظیمات** → **داده نمونه** → **بارگذاری داده نمونه** استفاده کنید.
 
 ---
+
+#### از کجا می‌توانم نسخهٔ نصبی (ویندوز/لینوکس/اندروید) بگیرم؟
+از [صفحهٔ ریلیز](https://github.com/Kourosh242/iva-personal-finance/releases/latest) — راهنمای کامل انتخاب و نصب فایل مناسب در صفحهٔ [دانلود و نصب](Downloads) است.
 
 ### ❔ ویژگی‌ها
 
@@ -84,7 +87,7 @@ IVA is Persian for "Smart Accountant" and also suggests "I Value Assets." The Pe
 Yes! IVA is completely free and open-source under the MIT license.
 
 #### Do I need internet to use it?
-Yes. All data and calculations happen on your device; nothing is uploaded anywhere.
+No. After the initial load, all data and calculations happen on your device. The only exception is the optional **Tools** page: clicking "Refresh rates" requests public market rates (no personal data). Otherwise everything works offline.
 
 #### Does IVA work on mobile?
 Yes! IVA is fully responsive and works on desktop, tablet, and mobile. You can also install it as a PWA.
@@ -103,9 +106,12 @@ Your data would be lost. We recommend taking a **JSON backup** regularly from Se
 Go to **Settings** → **Data** → **Download JSON backup**. To restore, use **Restore from backup**.
 
 #### Can I remove sample data?
-Yes. In **Settings** → **Data** → **Reset** will restore original sample data. You can Undo it.
+Yes. Go to **Settings** → **Data** → **Erase all data** to remove everything (it is undoable). To bring the demo back, use **Settings** → **Sample data** → **Load sample data**.
 
 ---
+
+#### Where can I get the packaged app (Windows/Linux/Android)?
+From the [release page](https://github.com/Kourosh242/iva-personal-finance/releases/latest) — the full guide for choosing and installing the right file is in [Downloads & Installation](Downloads).
 
 ### ❔ Features
 
