@@ -34,4 +34,4 @@
 - [x] تقویم شمسی با انتخابگر بومی
 - [x] مهاجرت v1/v2 → v3 بدون از دست رفتن داده
 - [x] CSP و سخت‌سازی امنیتی
-- [x] مستندات حرفه‌ای، ویکی، GitHub Actions و GitHub Pages
+- [x] مستندات حرفه‌ای، ویکی و قالب‌های GitHub Actions/GitHub Pages (در sandbox)

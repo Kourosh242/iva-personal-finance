@@ -26,11 +26,14 @@ git push origin main
 
 ### روش A — GitHub Actions (توصیه‌شده)
 
-ریپو دارای workflow `.github/workflows/pages.yml` است:
+برای فعال‌سازی خودکار Pages، قالب‌های `.github/workflows/pages.yml` و `ci.yml` باید با مجوز `workflows` به ریپو push شوند (در برخی حالت‌های GitHub App این مجوز در دسترس نیست و باید اجازهٔ مربوط به GitHub Actions/Workflows را فعال کنید).
 
-1. **Settings → Pages → Source: GitHub Actions** را انتخاب کنید.
-2. Push به `main` انجام دهید.
-3. چند دقیقه بعد سایت از `https://<user>.github.io/iva-personal-finance/` در دسترس است.
+1. فایل‌های `.github/workflows/` را اضافه و push کنید.
+2. **Settings → Pages → Source: GitHub Actions** را انتخاب کنید.
+3. Push به `main` انجام دهید.
+4. چند دقیقه بعد سایت از `https://<user>.github.io/iva-personal-finance/` در دسترس است.
+
+بدون workflow هم می‌توانید از «روش B — Deploy from branch» استفاده کنید.
 
 ### روش B — Deploy from branch
 

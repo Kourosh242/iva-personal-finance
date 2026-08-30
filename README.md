@@ -326,7 +326,7 @@ iva-personal-finance/
 ├── assets/                 # لوگو، تصاویر، آیکون‌های PWA
 │   └── banks/              # لوگوهای بانک‌ها (محلی، آفلاین)
 ├── fonts/                  # فونت وزیرمتن (مجوز OFL)
-├── .github/                # قالب‌های Issue/PR + Workflow GitHub Pages
+├── .github/                # قالب‌های Issue/PR (workflow‌ها به‌صورت اختیاری ارائه شدند)
 ├── docs/BRAND.md           # راهنمای برند
 ├── wiki/                   # ویکی پروژه (مستندات کامل)
 │
@@ -640,7 +640,7 @@ iva-personal-finance/
 ├── assets/                 # Logos, images, PWA icons
 │   └── banks/              # Bank logos (local, offline)
 ├── fonts/                  # Vazirmatn font (OFL license)
-├── .github/                # Issue/PR templates + GitHub Pages workflow
+├── .github/                # Issue/PR templates (workflow templates are provided in the sandbox)
 ├── docs/BRAND.md           # Brand guidelines
 ├── wiki/                   # Project wiki (full documentation)
 │
